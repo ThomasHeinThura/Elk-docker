@@ -13,3 +13,4 @@ The full list of components is available in the [manifest](manifest.yaml)
 Since Core is a "classic" distribution its components are strictly limited to what currently exists in its [manifest](manifest.yaml) and any future components in Core.
 No other components from Contrib should be added.
 # Elk-docker
+# Elk-docker
