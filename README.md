@@ -1,7 +1,11 @@
 # Elk-docker
 Reference:
+install docker
 https://elasticsearch.evermight.com/docker-elk-2-agent-fleet-server-apm/
 https://www.elastic.co/blog/getting-started-with-the-elastic-stack-and-docker-compose-part-2
+
+For SQL server monitoring using ELK
+https://medium.com/@gopikrishnapandurangan/what-is-elastic-cloud-090e218d540e
 
 
 ## Pre-install
@@ -61,10 +65,26 @@ Uninstall apm integration and re-setup the apm server with http://0.0.0.0:8200
 
 
 ### Test 
-1. Test with vm 
-2. Test with db 
-3. Test with elastic defender
+1. Test with vm (install new agent on vm)
+2. Test with db (add integration to db)
+3. Test with elastic defender (add integraitn to vm)
 4. Test with apm
+
+
+
+```sh
+java -javaagent:opentelemetry-javaagent.jar \
+                       -Dotel.service.name=test-doctor-serivce \
+                       -Dotel.exporter.otlp.endpoint=http://<apm-ip>:8200 \
+                       -Dotel.metrics.exporter=otlp \
+                       -Dotel.logs.exporter=otlp \
+                       -jar doctorinfo-jdk11.jar
+```
+
+Test with 
+```sh
+curl -X GET "http://<Java-app-ip>:9090/grandOak/doctors/Physician" -f
+```
 
 ### Post integration
 1. add life cycle policy to trace. (apm policy and database policy)
