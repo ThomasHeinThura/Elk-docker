@@ -1,4 +1,8 @@
 # Elk-docker
+Reference:
+https://elasticsearch.evermight.com/docker-elk-2-agent-fleet-server-apm/
+https://www.elastic.co/blog/getting-started-with-the-elastic-stack-and-docker-compose-part-2
+
 
 ## Pre-install
 1. Make sure mount nfs or storage and create volume. 
