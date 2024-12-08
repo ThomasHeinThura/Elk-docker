@@ -1,23 +1,68 @@
 # Elk-docker
 
-1. Docker Setup 
+## Pre-install
+1. Make sure mount nfs or storage and create volume. 
+2. Root uer
+
+## 1. Install docker module 
+- https://docs.docker.com/engine/install/rhel/
+
+### deploy post implementation 
+- https://docs.docker.com/engine/install/linux-postinstall/
+
+### install portainer
+```sh
+docker run -d -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:2.21.4
+```
+
+## 2. download elk setup 
+```zsh
+git clone https://github.com/ThomasHeinThura/Elk-docker.git
+```
+
+## install the setup 
+```sh 
+docker compose up -d
+```
+
+### fleet-server setup 
+Need to add an encryption key. need to fix the fleet server and remove the APM server. Fleet server enrollment error.
+
+To get the certificate fingerprint, run the following commands:
+
+```zsh
+docker cp es-cluster-es01-1:/usr/share/elasticsearch/config/certs/ca/ca.crt /tmp/.
+```
+and Run the below to get the certificate fingerprint.
+
+```zsh
+openssl x509 -fingerprint -sha256 -noout -in /tmp/ca.crt | awk -F"=" {' print $2 '} | sed s/://g
+```
+Use the below command to output the certificate;
+```zsh
+cat /tmp/ca.crt
+```
+
+Once you have the certificate text, we will add it to a yml format and input all this information into the Fleet Settings screen from earlier.
+
+```yml
+ssl:
+    certificate_authorities:
+    - |
+```
+and add the contents. 
+
+### APM server setup 
+Uninstall apm integration and re-setup the apm server with http://0.0.0.0:8200
 
 
+### Test 
+1. Test with vm 
+2. Test with db 
+3. Test with elastic defender
+4. Test with apm
 
-2. git clone 
-
-
-3. fleet-server setup 
-
-
-
-4. apm setup 
-
-
-
-5. test 
-
-5.1. test with apm 
-
-
-5.2. test with vm and mysql 
+### Post integration
+1. add life cycle policy to trace. (apm policy and database policy)
+2. add dashboard user. 
+3. add dashboard
