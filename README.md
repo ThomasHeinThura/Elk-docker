@@ -60,6 +60,17 @@ ssl:
 ```
 and add the contents. 
 
+We need to add fleet-server in the fleet-server. setup as `advance` and add hostname url as `https://fleet-server:8220`.  
+
+we need to add hostname and ip in every db agent and vm.   
+
+```
+# \etc\hosts
+
+<ELK-ip> fleet-server
+
+```
+
 ### APM server setup 
 Uninstall apm integration and re-setup the apm server with http://0.0.0.0:8200
 
