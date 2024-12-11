@@ -87,7 +87,7 @@ services:
       resources:
         limits:
           cpus: '4'
-          memory: 10GB
+          memory: 26GB
     labels:
       co.elastic.logs/module: elasticsearch
     volumes:
