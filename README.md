@@ -85,11 +85,12 @@ Uninstall apm integration and re-setup the apm server with http://0.0.0.0:8200
 
 ```sh
 java -javaagent:opentelemetry-javaagent.jar \
-                       -Dotel.service.name=test-doctor-serivce \
-                       -Dotel.exporter.otlp.endpoint=http://<apm-ip>:8200 \
-                       -Dotel.metrics.exporter=otlp \
-                       -Dotel.logs.exporter=otlp \
-                       -jar doctorinfo-jdk11.jar
+    -Dotel.service.name=test-doctor-serivce \
+    -Dotel.exporter.otlp.endpoint=http://localhost:8200 \
+    -Dotel.metrics.exporter=otlp \
+    -Dotel.logs.exporter=otlp \
+    -Dotel.resource.attributes=deployment.environment=production \
+    -jar doctorinfo-jdk11.jar
 ```
 
 Test with 
