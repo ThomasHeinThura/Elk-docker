@@ -86,8 +86,8 @@ services:
     deploy:
       resources:
         limits:
-          cpus: '4'
-          memory: 26GB
+          cpus: '8'
+          memory: 31GB
     labels:
       co.elastic.logs/module: elasticsearch
     volumes:
