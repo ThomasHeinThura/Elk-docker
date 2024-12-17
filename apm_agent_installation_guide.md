@@ -24,10 +24,10 @@ export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-jav
 
 #### For Production.
 - add -javaagent:<APM Agent path> to actual file path of apm agent jar file. 
-- add -Dotel.service.name=UAT-<service-name> to actual service.name.
+- add -Dotel.service.name=<service-name> to actual service.name.
 
 ```sh
-export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-javaagent.jar -Dotel.service.name=Prod-<Service-name> -Dotel.exporter.otlp.endpoint=http://10.100.66.41:8200 -Dotel.metrics.exporter=otlp -Dotel.log    s.exporter=otlp -Dotel.resource.attributes=deployment.environment=Production"
+export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-javaagent.jar -Dotel.service.name=<Service-name> -Dotel.exporter.otlp.endpoint=http://10.100.66.41:8200 -Dotel.metrics.exporter=otlp -Dotel.log    s.exporter=otlp -Dotel.resource.attributes=deployment.environment=Production"
 ```
 
 
