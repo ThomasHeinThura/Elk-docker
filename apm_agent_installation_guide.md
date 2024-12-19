@@ -3,7 +3,7 @@
 
 or with wget cmd
 ```sh
- wget https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v2.10.0/opentelemetry-javaagent.jar
+ wget https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar
 ```
   
 ### Add agent to the vm 
@@ -19,7 +19,7 @@ or with wget cmd
 
 #### For UAT
 ```sh
-export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-javaagent.jar -Dotel.service.name=UAT-<Service-name> -Dotel.exporter.otlp.endpoint=http://10.100.64.41:8200 -Dotel.metrics.exporter=otlp -Dotel.log    s.exporter=otlp -Dotel.resource.attributes=deployment.environment=UAT"
+export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-javaagent.jar -Dotel.service.name=UAT-<Service-name> -Dotel.exporter.otlp.endpoint=http://10.100.64.41:8200 -Dotel.metrics.exporter=otlp -Dotel.logs.exporter=otlp -Dotel.resource.attributes=deployment.environment=UAT"
 ```
 
 #### For Production.
@@ -27,7 +27,7 @@ export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-jav
 - add -Dotel.service.name=<service-name> to actual service.name.
 
 ```sh
-export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-javaagent.jar -Dotel.service.name=<Service-name> -Dotel.exporter.otlp.endpoint=http://10.100.66.41:8200 -Dotel.metrics.exporter=otlp -Dotel.log    s.exporter=otlp -Dotel.resource.attributes=deployment.environment=Production"
+export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-javaagent.jar -Dotel.service.name=<Service-name> -Dotel.exporter.otlp.endpoint=http://10.100.66.41:8200 -Dotel.metrics.exporter=otlp -Dotel.logs.exporter=otlp -Dotel.resource.attributes=deployment.environment=Production"
 ```
 
 

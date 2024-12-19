@@ -4,7 +4,7 @@ elastic:
     serverUrl: "http://fleet-server:8200"
     secretToken: ${ELASTIC_APM_SECRET_TOKEN}
 server.host: "0.0.0.0"
-telemetry.enabled: "true"
+telemetry.enabled: "false"
 xpack.fleet.packages:
   - name: fleet_server
     version: latest
