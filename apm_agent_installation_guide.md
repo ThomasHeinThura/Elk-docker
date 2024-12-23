@@ -19,7 +19,7 @@ or with wget cmd
 
 #### For UAT
 ```sh
-export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-javaagent.jar -Dotel.service.name=UAT-<Service-name> -Dotel.exporter.otlp.endpoint=http://10.100.64.41:8200 -Dotel.metrics.exporter=otlp -Dotel.logs.exporter=otlp -Dotel.resource.attributes=deployment.environment=UAT"
+export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-javaagent.jar -Dotel.service.name=UAT-<Service-name> -Dotel.exporter.otlp.endpoint=http://10.100.64.41:8200 -Dotel.metrics.exporter=otlp -Dotel.logs.exporter=otlp"
 ```
 
 #### For Production.
@@ -27,10 +27,19 @@ export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-jav
 - add -Dotel.service.name=<service-name> to actual service.name.
 
 ```sh
-export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:<APM Agent path>/opentelemetry-javaagent.jar -Dotel.service.name=<Service-name> -Dotel.exporter.otlp.endpoint=http://10.100.66.41:8200 -Dotel.metrics.exporter=otlp -Dotel.logs.exporter=otlp -Dotel.resource.attributes=deployment.environment=Production"
+export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:/home/oracle/opentelemetry-javaagent.jar -Dotel.service.name=Prod-Core -Dotel.exporter.otlp.endpoint=http://10.100.66.41:8200 -Dotel.metrics.exporter=otlp -Dotel.logs.exporter=otlp -Dotel.resource.attributes=deployment.environment=Production"
+```
+
+```sh
+export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:/home/oracle/opentelemetry-javaagent.jar -Dotel.service.name=Prod-Digital -Dotel.exporter.otlp.endpoint=http://10.100.66.41:8200 -Dotel.metrics.exporter=otlp -Dotel.logs.exporter=otlp -Dotel.resource.attributes=deployment.environment=Production"
+```
+
+```sh
+CATALINA_OPTS="$CATALINA_OPTS -javaagent:/home/oracle/opentelemetry-javaagent.jar -Dotel.service.name=Prod-Cms -Dotel.exporter.otlp.endpoint=http://10.100.66.41:8200 -Dotel.metrics.exporter=otlp -Dotel.logs.exporter=otlp -Dotel.resource.attributes=deployment.environment=Production"
 ```
 
 
-
-
-
+Testing
+```sh
+CATALINA_OPTS="$CATALINA_OPTS -javaagent:/home/ubuntu/opentelemetry-javaagent.jar -Dotel.service.name=Prod-Cms -Dotel.exporter.otlp.endpoint=http://198.19.249.98:8200 -Dotel.metrics.exporter=otlp -Dotel.logs.exporter=otlp -Dotel.resource.attributes=deployment.environment=Production"
+```
