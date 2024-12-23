@@ -35,7 +35,7 @@ export JAVA_OPTIONS="$JAVA_OPTIONS -javaagent:/home/oracle/opentelemetry-javaage
 ```
 
 ```sh
-CATALINA_OPTS="$CATALINA_OPTS -javaagent:/home/oracle/opentelemetry-javaagent.jar -Dotel.service.name=Prod-Cms -Dotel.exporter.otlp.endpoint=http://10.100.66.41:8200 -Dotel.metrics.exporter=otlp -Dotel.logs.exporter=otlp -Dotel.resource.attributes=deployment.environment=Production"
+CATALINA_OPTS="$CATALINA_OPTS -javaagent:/home/cardzone/opentelemetry-javaagent.jar -Dotel.service.name=Prod-Cms -Dotel.exporter.otlp.endpoint=http://10.100.66.41:8200 -Dotel.metrics.exporter=otlp -Dotel.logs.exporter=otlp -Dotel.resource.attributes=deployment.environment=Production"
 ```
 
 
