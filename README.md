@@ -51,6 +51,7 @@ Use the below command to output the certificate;
 cat /tmp/ca.crt
 ```
 
+change host to `https://es01:9200`.   
 Once you have the certificate text, we will add it to a yml format and input all this information into the Fleet Settings screen from earlier.
 
 ```yml
